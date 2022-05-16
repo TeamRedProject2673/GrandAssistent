@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Elder Care</string>
+
+
+    //TODOS LOS TEXTOS DE LA APP
+
+    //TEXTO
+    <string name="txt_elegir_cuenta">¿Como?</string>
+    <string name="txt_usuario2">Usuario</string>
+    <string name="txt_asistente">Asistente</string>
+    <string name="txt_iniciar_sesion">¡Bienvenido!</string>
+    <string name="txt_olvidaste_contra">Olvidaste tu Contraseña?</string>
+    <string name="txt_no_cuenta">No tienes una Cuenta?</string>
+
+    //CAJA DE TEXTO
+    <string name="txt_usuario">Correo</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="txt_nombre">Nombre</string>
+    <string name="txt_correo">Correo</string>
+    <string name="txt_descripcion">Especializacion</string>
+    <string name="txt_telefono">Telefono</string>
+    <string name="txt_contraseña">Contraseña</string>
+    <string name="txt_confitmar_contraseña">Confirmar Contraseña</string>
+    //BOTONES
+    <string name="btn_iniciar">Iniciar</string>
+    <string name="btn_registrar">Registrar</string>
+    //MENSAJES DE ERROR O AYUDA
+    <string name="mnsj_text_ayuda">*Campo Obligatorio*</string>
+
+</resources>
