@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -79,6 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_Nombre">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -119,6 +121,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -156,6 +159,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -193,6 +197,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
