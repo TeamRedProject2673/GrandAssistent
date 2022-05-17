@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_asistente.xml" value="0.264" />
         <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_elegir_cuenta.xml" value="0.25" />
+        <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_inicio_asistente.xml" value="0.2359375" />
+        <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_inicio_usuario.xml" value="0.25" />
         <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/richa/AndroidStudioProjects/GrandAssistent/app/src/main/res/layout/activity_usuario.xml" value="0.264" />
@@ -16,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

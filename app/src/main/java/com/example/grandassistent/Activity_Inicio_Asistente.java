@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Activity_Usuario extends AppCompatActivity {
-
+public class Activity_Inicio_Asistente extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuario);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_inicio_asistente);
     }
 }
