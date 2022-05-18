@@ -28,7 +28,7 @@
         android:backgroundTint="@color/color_btn_iniciar"
         android:text="@string/btn_iniciar"
         android:drawableLeft="@drawable/icono_iniciar_sesion"
-        android:drawableTint="@color/black"
+        android:drawableTint="@color/white"
         android:textColor="@color/white"
         android:textSize="30dp"
         app:cornerRadius="20dp"

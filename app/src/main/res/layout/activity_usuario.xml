@@ -235,7 +235,7 @@
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/color_btn_iniciar"
         android:drawableLeft="@drawable/icono_registrar"
-        android:drawableTint="@color/black"
+        android:drawableTint="@color/white"
         android:text="@string/btn_registrar"
         android:textColor="@color/white"
         android:textSize="30dp"
