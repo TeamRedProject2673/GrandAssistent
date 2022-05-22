@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        final int Duracion = 2500;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent_inicio = new Intent(MainActivity.this,Login.class);
+                Intent intent_inicio = new Intent(MainActivity.this,MainActivity_Pantalla_Inicio.class);
                 startActivity(intent_inicio);
-                finish();
             }
-        },1000);
+        },Duracion);
     }
 }

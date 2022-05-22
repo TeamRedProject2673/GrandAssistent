@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="90dp"
         android:background="@mipmap/logo_app"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:hint="@string/txt_nombre"
         app:startIconDrawable="@drawable/icono_enfermera"
@@ -71,7 +71,7 @@
         app:endIconTint="@color/black"
         app:hintTextColor="@color/black"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +83,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textCursorDrawable="@color/black"
+            android:inputType="textEmailAddress"
          />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +111,7 @@
         app:counterMaxLength="10"
         app:counterTextColor="@color/black"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +148,7 @@
         app:prefixTextColor="@color/black"
         app:counterTextColor="@color/black"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,24 +164,13 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
-
-
-
-
-
-
-
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_Descripcion_A"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:hint="@string/txt_descripcion"
         android:textColorHint="@color/black"
@@ -228,7 +218,7 @@
         app:helperTextTextColor="@color/black"
         app:hintTextColor="@color/black"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +255,7 @@
         app:helperTextTextColor="@color/black"
         app:hintTextColor="@color/black"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -287,7 +277,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/color_btn_iniciar"
         android:drawableLeft="@drawable/icono_registrar"
         android:drawableTint="@color/white"

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,8 +43,11 @@ public class Activity_Usuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
         ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.hide();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_btn_iniciar)));
+        actionBar.setTitle("Registrar Usuario");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         til_nombre = (TextInputLayout) findViewById(R.id.txt_Nombre);
         til_correo = (TextInputLayout) findViewById(R.id.txt_Correo2);
         til_telefono = (TextInputLayout) findViewById(R.id.txt_Telefono);
@@ -105,7 +109,7 @@ public class Activity_Usuario extends AppCompatActivity {
                         DatabaseReference reference = database.getReference("USUARIOS_GRAND_ASSISTENT");
                         reference.child("Usuarios").child(id).setValue(DatosUsuario);
                         Toast.makeText(Activity_Usuario.this,"Registro Exitoso",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Activity_Usuario.this,Activity_Inicio_Usuario.class));
+                        startActivity(new Intent(Activity_Usuario.this,MainActivity_Pantalla_Inicio.class));
                     }else {
                         Toast.makeText(Activity_Usuario.this,"No Se Pudo Registrar",Toast.LENGTH_SHORT).show();
                     }
@@ -125,6 +129,12 @@ public class Activity_Usuario extends AppCompatActivity {
         inputEditText.setError(s);
         inputEditText.requestFocus();
     }//FIN DE LA FUNCION ERROR
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }
 
 

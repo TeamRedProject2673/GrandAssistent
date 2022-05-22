@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
                     if (task.isSuccessful()){
                         mProgressBar.dismiss();
                         FirebaseUser user = mAuth.getCurrentUser();
-                        startActivity(new Intent(Login.this,Activity_Inicio_Usuario.class));
+                        startActivity(new Intent(Login.this,MainActivity_Pantalla_Inicio.class));
                         assert user != null;
                         Toast.makeText(Login.this, "Bienvenido(a) " + user.getEmail(), Toast.LENGTH_SHORT).show();
                         finish();
@@ -107,12 +107,4 @@ public class Login extends AppCompatActivity {
         inputEditText.requestFocus();
     }//FIN DE LA FUNCION ERROR
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if(user!=null){
-            startActivity(new Intent(Login.this, Activity_Inicio_Usuario.class));
-        }
-    }
 }

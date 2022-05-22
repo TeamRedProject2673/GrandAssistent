@@ -1,8 +1,10 @@
 package com.example.grandassistent;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +16,11 @@ public class Elegir_Cuenta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_elegir_cuenta);
-        getSupportActionBar().hide();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_btn_iniciar)));
+        actionBar.setTitle("Mis Datos");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         imv_asistente = (ImageView) findViewById(R.id.img_Enfermera);
         imv_usuario = (ImageView) findViewById(R.id.img_Usuario);
 
@@ -33,5 +39,11 @@ public class Elegir_Cuenta extends AppCompatActivity {
                 startActivity(registrar_usuario);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

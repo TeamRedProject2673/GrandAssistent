@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,16 +8,146 @@
     android:background="@color/portada_app"
     tools:context=".Activity_Inicio_Usuario">
 
-    <Button
-        android:id="@+id/btn_Salir"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginEnd="140dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/tv_mis_datos"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp">
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/Image_Datos"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/icono_perfil"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <TextView
+            android:id="@+id/Tv_UID_Datos"
+            android:text="@string/tv_ui_dato"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Nombre"
+            android:text="@string/tv_nombre"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Correo"
+            android:text="@string/tv_correo"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Telefono"
+            android:text="@string/tv_telefono"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Precio"
+            android:text="@string/tv_precio"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Especializacion"
+            android:text="@string/tv_especializacion"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/Tv_Password"
+            android:text="@string/tv_constraseña"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_Acutalizar"
+            android:text="@string/btn_actualizar_datos"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/icono_actualizar"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/color_btn_iniciar"
+            app:cornerRadius="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_Cerrar_Sesion"
+            android:text="@string/btn_cerrar_sesion"
+            android:backgroundTint="@color/color_btn_iniciar"
+            android:drawableLeft="@drawable/icono_cerrar_sesion"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_Eliminar"
+            android:text="@string/btn_eliminar_cuenta"
+            android:drawableLeft="@drawable/icono_eliminar"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/design_default_color_error"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
