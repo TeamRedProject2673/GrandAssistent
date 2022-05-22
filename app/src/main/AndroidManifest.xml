@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GrandAssistent">
         <activity
+            android:name=".Activity_Pantalla_Asistente"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity_Pantalla_Inicio"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Pantalla_Inicio"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Inicio_Asistente"
             android:exported="false" />
         <activity

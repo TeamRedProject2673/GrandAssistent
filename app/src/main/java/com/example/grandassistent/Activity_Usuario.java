@@ -1,6 +1,7 @@
 package com.example.grandassistent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -11,11 +12,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,7 +29,7 @@ public class Activity_Usuario extends AppCompatActivity {
     private Button btn_registrar;
     private ProgressDialog mProgressBar;
     FirebaseAuth mAuth;
-    DatabaseReference mDatabase;
+    //DatabaseReference mDatabase;
 
     //VARIABLES GLOBALES PARA LOS EDIT TEXT
     private String s_nombre = "";
@@ -39,16 +41,19 @@ public class Activity_Usuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
         til_nombre = (TextInputLayout) findViewById(R.id.txt_Nombre);
         til_correo = (TextInputLayout) findViewById(R.id.txt_Correo2);
         til_telefono = (TextInputLayout) findViewById(R.id.txt_Telefono);
         til_pass = (TextInputLayout) findViewById(R.id.txt_Password1);
         til_confirmar_pass = (TextInputLayout) findViewById(R.id.txt_Confirm_Password);
         btn_registrar = (Button) findViewById(R.id.btn_Registrarme);
-        getSupportActionBar().hide();
+
         mProgressBar =new ProgressDialog(Activity_Usuario.this);
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //mDatabase = FirebaseDatabase.getInstance().getReference();
 
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,29 +90,30 @@ public class Activity_Usuario extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         mProgressBar.dismiss();
-                        Map<String,Object> map = new HashMap<>();
-                        map.put("Nombre",s_nombre);
-                        map.put("Correo",s_correo);
-                        map.put("Telefono",s_telefono);
-                        map.put("Contraseña",s_pass);
-                        map.put("Confirmar",s_confirmar_pass);
-
-                        String id = mAuth.getCurrentUser().getUid();
-                        mDatabase.child("Usuarios").child("Clientes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task2) {
-                                if(task2.isSuccessful()){
-                                    startActivity(new Intent(Activity_Usuario.this,Activity_Inicio_Usuario.class));
-                                    Toast.makeText(Activity_Usuario.this,"Registro Exitoso",Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }else {
-                                    Toast.makeText(Activity_Usuario.this,"No se crearon los datos correctamente",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                    }else{
-                        Toast.makeText(getApplicationContext(),"No se pudo Registrar",Toast.LENGTH_SHORT).show();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        String id = user.getUid();
+                        HashMap<Object,String> DatosUsuario = new HashMap<>();
+                        DatosUsuario.put("UId",id);
+                        DatosUsuario.put("Nombre",s_nombre);
+                        DatosUsuario.put("Correo",s_correo);
+                        DatosUsuario.put("Telefono",s_telefono);
+                        DatosUsuario.put("Contraseña",s_pass);
+                        DatosUsuario.put("Confirmar_Contraseña",s_confirmar_pass);
+                        //INICIALIZAR LA INSTANCIA EN LA BASE DE DATOS DE FIREBASE
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        //CREAR BASE DE DATOS
+                        DatabaseReference reference = database.getReference("USUARIOS_GRAND_ASSISTENT");
+                        reference.child("Usuarios").child(id).setValue(DatosUsuario);
+                        Toast.makeText(Activity_Usuario.this,"Registro Exitoso",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Activity_Usuario.this,Activity_Inicio_Usuario.class));
+                    }else {
+                        Toast.makeText(Activity_Usuario.this,"No Se Pudo Registrar",Toast.LENGTH_SHORT).show();
                     }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(Activity_Usuario.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
