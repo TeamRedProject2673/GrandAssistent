@@ -51,7 +51,7 @@ public class Activity_Usuario extends AppCompatActivity {
         til_confirmar_pass = (TextInputLayout) findViewById(R.id.txt_Confirm_Password);
         btn_registrar = (Button) findViewById(R.id.btn_Registrarme);
 
-        mProgressBar =new ProgressDialog(Activity_Usuario.this);
+        mProgressBar = new ProgressDialog(Activity_Usuario.this);
         mAuth = FirebaseAuth.getInstance();
         //mDatabase = FirebaseDatabase.getInstance().getReference();
 
