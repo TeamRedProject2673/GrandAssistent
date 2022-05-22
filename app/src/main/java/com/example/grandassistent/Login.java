@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class Login extends AppCompatActivity {
+    private TextInputLayout til_correo_l,til_password_l;
     private Button btn_iniciar;
     private TextView tv_olvidar,tv_registrar;
 
@@ -19,6 +22,9 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().hide();
         btn_iniciar = (Button) findViewById(R.id.btn_Iniciar);
         tv_registrar = (TextView) findViewById(R.id.Text_Registrar);
+        tv_olvidar = (TextView) findViewById(R.id.textView_Olvidar);
+        til_correo_l = (TextInputLayout) findViewById(R.id.txt_Usuario);
+        til_password_l = (TextInputLayout) findViewById(R.id.txt_Password);
 
         tv_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
