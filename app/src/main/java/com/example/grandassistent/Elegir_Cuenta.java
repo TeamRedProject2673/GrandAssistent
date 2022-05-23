@@ -18,7 +18,7 @@ public class Elegir_Cuenta extends AppCompatActivity {
         setContentView(R.layout.activity_elegir_cuenta);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_btn_iniciar)));
-        actionBar.setTitle("Mis Datos");
+        actionBar.setTitle("Elegir Cuenta");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         imv_asistente = (ImageView) findViewById(R.id.img_Enfermera);

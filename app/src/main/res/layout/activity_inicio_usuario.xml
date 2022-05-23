@@ -35,9 +35,10 @@
         <TextView
             android:id="@+id/Tv_UID_Datos"
             android:text="@string/tv_ui_dato"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -46,9 +47,10 @@
         <TextView
             android:id="@+id/Tv_Nombre"
             android:text="@string/tv_nombre"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -57,9 +59,10 @@
         <TextView
             android:id="@+id/Tv_Correo"
             android:text="@string/tv_correo"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -68,9 +71,10 @@
         <TextView
             android:id="@+id/Tv_Telefono"
             android:text="@string/tv_telefono"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -79,9 +83,10 @@
         <TextView
             android:id="@+id/Tv_Precio"
             android:text="@string/tv_precio"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -90,9 +95,10 @@
         <TextView
             android:id="@+id/Tv_Especializacion"
             android:text="@string/tv_especializacion"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -101,9 +107,10 @@
         <TextView
             android:id="@+id/Tv_Password"
             android:text="@string/tv_constraseña"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -112,6 +119,7 @@
         <Button
             android:id="@+id/btn_Acutalizar"
             android:text="@string/btn_actualizar_datos"
+            android:textSize="25dp"
             android:textColor="@color/white"
             android:drawableLeft="@drawable/icono_actualizar"
             android:drawableTint="@color/white"
@@ -126,6 +134,7 @@
         <Button
             android:id="@+id/btn_Cerrar_Sesion"
             android:text="@string/btn_cerrar_sesion"
+            android:textSize="25dp"
             android:backgroundTint="@color/color_btn_iniciar"
             android:drawableLeft="@drawable/icono_cerrar_sesion"
             android:drawableTint="@color/white"
@@ -139,6 +148,7 @@
         <Button
             android:id="@+id/btn_Eliminar"
             android:text="@string/btn_eliminar_cuenta"
+            android:textSize="25dp"
             android:drawableLeft="@drawable/icono_eliminar"
             android:drawableTint="@color/white"
             android:backgroundTint="@color/design_default_color_error"

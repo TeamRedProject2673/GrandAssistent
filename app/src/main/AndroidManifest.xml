@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GrandAssistent">
         <activity
+            android:name=".Activity_Recuperar_Pass"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Pantalla_Asistente"
             android:exported="false" />
         <activity

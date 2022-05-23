@@ -57,6 +57,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        tv_olvidar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this,Activity_Recuperar_Pass.class));
+            }
+        });
+
         tv_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

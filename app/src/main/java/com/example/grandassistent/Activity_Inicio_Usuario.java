@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Activity_Inicio_Usuario extends AppCompatActivity {
+    private ImageView imageView_perfil;
     private Button btn_actualizar,btn_cerrar_sesion,btn_eliminar;
     private TextView tv_id,tv_nombre,tv_correo,tv_telefono,tv_precio,tv_especializacion,tv_contraseña;
     FirebaseAuth mAuth;
@@ -38,6 +40,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        imageView_perfil = (ImageView) findViewById(R.id.Image_Datos);
         tv_id = (TextView) findViewById(R.id.Tv_UID_Datos);
         tv_nombre = (TextView) findViewById(R.id.Tv_Nombre);
         tv_correo = (TextView) findViewById(R.id.Tv_Correo);
@@ -53,26 +56,54 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("USUARIOS_GRAND_ASSISTENT");
 
-        mDatabase.child("Asistentes").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Asistentes").child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String uid = "" + snapshot.child("UId").getValue();
-                String nombre = "" + snapshot.child("Nombre").getValue();
-                String correo = "" + snapshot.child("Correo").getValue();
-                String telefono = "" + snapshot.child("Telefono").getValue();
-                String precio = "" + snapshot.child("Precio_A").getValue();
-                String especializacion = "" + snapshot.child("Especializacion_A").getValue();
-                String password = "" + snapshot.child("Contraseña").getValue();
+                if (snapshot.exists()){
+                    String uid = "" + snapshot.child("UId").getValue()  ;
+                    String nombre = "" + snapshot.child("Nombre").getValue();
+                    String correo = "" + snapshot.child("Correo").getValue();
+                    String telefono = "" + snapshot.child("Telefono").getValue();
+                    String precio = "" + snapshot.child("Precio_A").getValue();
+                    String especializacion = "" + snapshot.child("Especializacion_A").getValue();
+                    String password = "" + snapshot.child("Contraseña").getValue();
 
-                tv_id.setText(uid);
-                tv_nombre.setText(nombre);
-                tv_correo.setText(correo);
-                tv_telefono.setText(telefono);
-                tv_precio.setText(precio);
-                tv_especializacion.setText(especializacion);
-                tv_contraseña.setText(password);
+                    tv_id.setText("ID: " + uid);
+                    tv_nombre.setText("Nombre: " + nombre);
+                    tv_correo.setText("Correo: " + correo);
+                    tv_telefono.setText("Telefono: " + telefono);
+                    tv_precio.setText("Precio: " + precio);
+                    tv_especializacion.setText("Especializacion: " + especializacion);
+                    tv_contraseña.setText("Contraseña: " + password);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mDatabase.child("Usuarios").child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                if(snapshot2.exists()){
+                    String uid2 = "" + snapshot2.child("UId").getValue()  ;
+                    String nombre2 = "" + snapshot2.child("Nombre").getValue();
+                    String correo2 = "" + snapshot2.child("Correo").getValue();
+                    String telefono2 = "" + snapshot2.child("Telefono").getValue();
+                    String password2 = "" + snapshot2.child("Contraseña").getValue();
+
+                    tv_id.setText("ID: " + uid2);
+                    tv_nombre.setText("Nombre: " + nombre2);
+                    tv_correo.setText("Correo: " + correo2);
+                    tv_telefono.setText("Telefono: " + telefono2);
+                    tv_precio.setText("Precio: ");
+                    tv_especializacion.setText("Especializacion: ");
+                    tv_contraseña.setText("Contraseña: " + password2);
+                }
             }
 
             @Override
