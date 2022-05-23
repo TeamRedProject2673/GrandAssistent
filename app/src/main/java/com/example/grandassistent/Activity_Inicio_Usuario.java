@@ -53,28 +53,26 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("USUARIOS_GRAND_ASSISTENT");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDatabase.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Asistentes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    String uid = "" + snapshot.child("UId").getValue();
-                    String nombre = "" + snapshot.child("Nombre").getValue();
-                    String correo = "" + snapshot.child("Correo").getValue();
-                    String telefono = "" + snapshot.child("Telefono").getValue();
-                    String precio = "" + snapshot.child("Precio_A").getValue();
-                    String especializacion = "" + snapshot.child("Especializacion_A").getValue();
-                    String password = "" + snapshot.child("Contraseña").getValue();
+                String uid = "" + snapshot.child("UId").getValue();
+                String nombre = "" + snapshot.child("Nombre").getValue();
+                String correo = "" + snapshot.child("Correo").getValue();
+                String telefono = "" + snapshot.child("Telefono").getValue();
+                String precio = "" + snapshot.child("Precio_A").getValue();
+                String especializacion = "" + snapshot.child("Especializacion_A").getValue();
+                String password = "" + snapshot.child("Contraseña").getValue();
 
-                    tv_id.setText(uid);
-                    tv_nombre.setText(nombre);
-                    tv_correo.setText(correo);
-                    tv_telefono.setText(telefono);
-                    tv_precio.setText(precio);
-                    tv_especializacion.setText(especializacion);
-                    tv_contraseña.setText(password);
-                }
+                tv_id.setText(uid);
+                tv_nombre.setText(nombre);
+                tv_correo.setText(correo);
+                tv_telefono.setText(telefono);
+                tv_precio.setText(precio);
+                tv_especializacion.setText(especializacion);
+                tv_contraseña.setText(password);
             }
 
             @Override
