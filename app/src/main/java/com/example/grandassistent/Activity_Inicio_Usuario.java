@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SearchRecentSuggestionsProvider;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -118,7 +120,12 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
                 Cerrar();
             }
         });
-    }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Window window = this.getWindow();
+            window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
+        }
+    }//FIN DEL ONCREATE
 
 
     @Override

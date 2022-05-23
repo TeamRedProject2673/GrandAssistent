@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
 public class Elegir_Cuenta extends AppCompatActivity {
@@ -39,7 +41,12 @@ public class Elegir_Cuenta extends AppCompatActivity {
                 startActivity(registrar_usuario);
             }
         });
-    }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Window window = this.getWindow();
+            window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
+        }
+    }//FIN DEL ONCREATE
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,7 +73,13 @@ public class Login extends AppCompatActivity {
                 startActivity(registrar);
             }
         });
-    }
+
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Window window = this.getWindow();
+            window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
+        }
+    }//FIN DEL ONCREATE
 
 
     public void Ingresar(String p_correo, String p_password){
