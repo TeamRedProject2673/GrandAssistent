@@ -17,11 +17,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity_Recuperar_Pass extends AppCompatActivity {
     private TextInputLayout til_correo_recuperar;
     private Button btn_enviar_correo;
     FirebaseAuth mAuth;
+    FirebaseUser firebaseUser;
+    DatabaseReference mDatabase;
     ProgressDialog mProgressBar;
     String s_recuperar_pass = "";
 
@@ -36,6 +41,7 @@ public class Activity_Recuperar_Pass extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
         mProgressBar = new ProgressDialog(Activity_Recuperar_Pass.this);
 
         til_correo_recuperar = (TextInputLayout) findViewById(R.id.txt_Enviar_Correo);

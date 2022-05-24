@@ -37,7 +37,7 @@
             android:text="@string/tv_ui_dato"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -49,7 +49,7 @@
             android:text="@string/tv_nombre"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -61,7 +61,7 @@
             android:text="@string/tv_correo"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -73,7 +73,7 @@
             android:text="@string/tv_telefono"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -85,7 +85,7 @@
             android:text="@string/tv_precio"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -97,19 +97,7 @@
             android:text="@string/tv_especializacion"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
-            android:paddingStart="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/Tv_Password"
-            android:text="@string/tv_constraseña"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="15dp"
             android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -125,7 +113,7 @@
             android:drawableTint="@color/white"
             android:backgroundTint="@color/color_btn_iniciar"
             app:cornerRadius="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -140,6 +128,7 @@
             android:drawableTint="@color/white"
             android:textColor="@color/white"
             app:cornerRadius="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -154,6 +143,7 @@
             android:backgroundTint="@color/design_default_color_error"
             android:textColor="@color/white"
             app:cornerRadius="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

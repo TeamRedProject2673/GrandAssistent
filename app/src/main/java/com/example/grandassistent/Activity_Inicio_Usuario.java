@@ -58,7 +58,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
         tv_telefono = (TextView) findViewById(R.id.Tv_Telefono);
         tv_precio = (TextView) findViewById(R.id.Tv_Precio);
         tv_especializacion = (TextView) findViewById(R.id.Tv_Especializacion);
-        tv_contraseña = (TextView) findViewById(R.id.Tv_Password);
+        //tv_contraseña = (TextView) findViewById(R.id.Tv_Password);
 
         btn_actualizar = (Button) findViewById(R.id.btn_Acutalizar);
         btn_cerrar_sesion = (Button) findViewById(R.id.btn_Cerrar_Sesion);
@@ -87,7 +87,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
                     tv_telefono.setText("Telefono: " + telefono);
                     tv_precio.setText("Precio: " + precio);
                     tv_especializacion.setText("Especializacion: " + especializacion);
-                    tv_contraseña.setText("Contraseña: " + password);
+                    //tv_contraseña.setText("Contraseña: " + password);
                 }
             }
 
@@ -113,13 +113,20 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
                     tv_telefono.setText("Telefono: " + telefono2);
                     tv_precio.setText("Precio: ");
                     tv_especializacion.setText("Especializacion: ");
-                    tv_contraseña.setText("Contraseña: " + password2);
+                    //tv_contraseña.setText("Contraseña: " + password2);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        btn_actualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Activity_Inicio_Usuario.this,"ESTAMOS TRABAJANDO EN ELLO",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -189,7 +196,6 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-
                                             mDatabase = FirebaseDatabase.getInstance().getReference("USUARIOS_GRAND_ASSISTENT");
                                             mDatabase.child("Asistentes").child(user.getUid()).removeValue();
                                             mDatabase.child("Usuarios").child(user.getUid()).removeValue();
