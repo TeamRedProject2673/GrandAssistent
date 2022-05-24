@@ -162,7 +162,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
     //METODO PARA CERRAR SESION
     public void Cerrar(){
         builder.setTitle("Cerrar Cuenta")
-                .setMessage("¿Estas Seguro Que Quieres Cerrar Tu Cuenta")
+                .setMessage("¿Estas Seguro Que Quieres Cerrar Tu Cuenta?")
                 .setCancelable(true)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
@@ -182,7 +182,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
     //METODO PARA ELIMINAR CUENTA
     public void Eliminar(){
         builder.setTitle("Eliminar Cuenta")
-                .setMessage("¿Estas Seguro Que Quieres Eliminar Tu Cuenta")
+                .setMessage("¿Estas Seguro Que Quieres Eliminar Tu Cuenta?")
                 .setCancelable(true)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
