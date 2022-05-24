@@ -27,7 +27,8 @@ public class MainActivity_Pantalla_Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_main_pantalla_inicio);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_btn_iniciar)));
-        actionBar.setTitle("Inicio");
+        actionBar.setTitle("  Inicio");
+        actionBar.setIcon(R.mipmap.icono_logo_app_round);
         actionBar.setDisplayShowHomeEnabled(true);
 
 
