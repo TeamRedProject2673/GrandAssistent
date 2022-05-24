@@ -2,8 +2,10 @@ package com.example.grandassistent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SearchRecentSuggestionsProvider;
 import android.graphics.drawable.ColorDrawable;
@@ -16,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +37,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
     DatabaseReference mDatabase;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,8 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
         actionBar.setTitle("Mis Datos");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        builder = new AlertDialog.Builder(Activity_Inicio_Usuario.this);
 
         imageView_perfil = (ImageView) findViewById(R.id.Image_Datos);
         tv_id = (TextView) findViewById(R.id.Tv_UID_Datos);
@@ -121,6 +130,13 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
             }
         });
 
+        btn_eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Eliminar();
+            }
+        });
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Window window = this.getWindow();
             window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
@@ -128,6 +144,7 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
     }//FIN DEL ONCREATE
 
 
+    //METODO PARA REGRESAR AL ANTERIOR VENTANA
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -137,8 +154,60 @@ public class Activity_Inicio_Usuario extends AppCompatActivity {
 
     //METODO PARA CERRAR SESION
     public void Cerrar(){
-        mAuth.signOut();
-        Toast.makeText(Activity_Inicio_Usuario.this, "Ha cerrado Sesion",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(Activity_Inicio_Usuario.this,Login.class));
+        builder.setTitle("Cerrar Cuenta")
+                .setMessage("¿Estas Seguro Que Quieres Cerrar Tu Cuenta")
+                .setCancelable(true)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mAuth.signOut();
+                        Toast.makeText(Activity_Inicio_Usuario.this, "Ha cerrado Sesion",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Activity_Inicio_Usuario.this,Login.class));
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface2, int i) {
+                        dialogInterface2.cancel();
+                    }
+                }).show();
+    }
+
+    //METODO PARA ELIMINAR CUENTA
+    public void Eliminar(){
+        builder.setTitle("Eliminar Cuenta")
+                .setMessage("¿Estas Seguro Que Quieres Eliminar Tu Cuenta")
+                .setCancelable(true)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        AuthCredential credential = EmailAuthProvider.getCredential("manuel@gmail.com","yosoymanuel");
+                        user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+
+                                            mDatabase = FirebaseDatabase.getInstance().getReference("USUARIOS_GRAND_ASSISTENT");
+                                            mDatabase.child("Asistentes").child(user.getUid()).removeValue();
+                                            mDatabase.child("Usuarios").child(user.getUid()).removeValue();
+                                            startActivity(new Intent(Activity_Inicio_Usuario.this,Login.class));
+                                            Toast.makeText(Activity_Inicio_Usuario.this,"Se elimino Cuenta",Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(getApplicationContext(),"No se pudo Eliminar" + task.getException(),Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface2, int i) {
+                        dialogInterface2.cancel();
+                    }
+                }).show();
     }
 }
