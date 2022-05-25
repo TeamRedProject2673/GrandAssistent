@@ -27,8 +27,8 @@ public class MainActivity_Pantalla_Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_main_pantalla_inicio);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_btn_iniciar)));
-        actionBar.setTitle("  Inicio");
-        actionBar.setIcon(R.mipmap.icono_logo_app_round);
+        actionBar.setTitle("Inicio");
+        actionBar.setIcon(R.mipmap.icono_logo_app);
         actionBar.setDisplayShowHomeEnabled(true);
 
 
@@ -36,6 +36,14 @@ public class MainActivity_Pantalla_Inicio extends AppCompatActivity {
         firebaseUser = mAuth.getCurrentUser();
 
         btn_datos = (Button) findViewById(R.id.btn_Mis_Datos);
+        btn_buscar = (Button) findViewById(R.id.btn_Buscar_Asistente);
+
+        btn_buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity_Pantalla_Inicio.this,Activity_Pantalla_Asistente.class));
+            }
+        });
 
         btn_datos.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,6 +12,10 @@
     <string name="txt_olvidaste_contra">Olvidaste tu Contraseña?</string>
     <string name="txt_no_cuenta">No tienes una Cuenta?</string>
 
+    <string name="tv_nombre_lista">Nombre:</string>
+    <string name="tv_telefono_lista">Telefono:</string>
+    <string name="tv_especializacion_lista">Especializacion:</string>
+
     //PERFIL DE USUARIOS
     <string name="tv_mis_datos">Mis Datos Personales</string>
     <string name="tv_ui_dato">UId</string>

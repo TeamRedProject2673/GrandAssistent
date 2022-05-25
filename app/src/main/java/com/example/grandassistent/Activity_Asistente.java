@@ -128,7 +128,8 @@ public class Activity_Asistente extends AppCompatActivity {
                         Toast.makeText(Activity_Asistente.this,"Registro Exitoso",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Activity_Asistente.this,MainActivity_Pantalla_Inicio.class));
                     }else {
-                        Toast.makeText(Activity_Asistente.this,"No Se Pudo Registrar",Toast.LENGTH_SHORT).show();
+                        mProgressBar.dismiss();
+                        Toast.makeText(Activity_Asistente.this,"No Se Pudo Registrar Algo Salio Mal",Toast.LENGTH_SHORT).show();
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {

@@ -118,7 +118,8 @@ public class Activity_Usuario extends AppCompatActivity {
                         Toast.makeText(Activity_Usuario.this,"Registro Exitoso",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Activity_Usuario.this,MainActivity_Pantalla_Inicio.class));
                     }else {
-                        Toast.makeText(Activity_Usuario.this,"No Se Pudo Registrar",Toast.LENGTH_SHORT).show();
+                        mProgressBar.dismiss();
+                        Toast.makeText(Activity_Usuario.this,"No Se Pudo Registrar Algo Salio Mal",Toast.LENGTH_SHORT).show();
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
