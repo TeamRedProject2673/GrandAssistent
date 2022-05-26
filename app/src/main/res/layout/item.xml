@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tv_nombre_lista"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_marginLeft="8dp"
                 android:text="Nombre"
                 android:textColor="@color/color_btn_iniciar"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tv_telefono_lista"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_marginLeft="8dp"
                 android:text="Telefono"
                 android:textColor="@color/color_btn_iniciar"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tv_especializacion_lista"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -88,8 +88,20 @@
                 android:layout_marginLeft="8dp"
                 android:text="Especializacion"
                 android:textColor="@color/color_btn_iniciar"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_btn_iniciar"
+            android:text="@string/btn_contratar"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:cornerRadius="20dp"
+            >
+
+        </Button>
 
 
     </LinearLayout>

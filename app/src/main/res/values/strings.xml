@@ -47,6 +47,7 @@
     <string name="btn_eliminar_cuenta">Eliminar Cuenta</string>
     <string name="btn_actualizar_datos">Actualizar Datos</string>
     <string name="btn_enviar">Enviar Mensaje</string>
+    <string name="btn_contratar">Contratar</string>
     //MENSAJES DE ERROR O AYUDA
     <string name="mnsj_text_ayuda">*Campo Obligatorio*</string>
     <string name="mnsj_text_ayuda_es">Enfermera, Compañera, Especialista</string>

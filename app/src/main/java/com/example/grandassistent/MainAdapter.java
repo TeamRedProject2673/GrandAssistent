@@ -12,20 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
+    private int resourse;
+    private ArrayList<Model> mList;
 
-    Context context;
-    ArrayList<Model> mList;
-
-    public MainAdapter(Context context, ArrayList<Model> mList) {
-        this.context = context;
+    public MainAdapter(ArrayList<Model> mList, int resourse){
         this.mList = mList;
+        this.resourse = resourse;
     }
+
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(resourse,parent,false);
         return new MyViewHolder(view);
+
     }
 
 
@@ -35,6 +36,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         holder.textView_nombre.setText(model.getM_nombre());
         holder.textView_telefono.setText(model.getM_telfono());
         holder.textView_especializacion.setText(model.getM_especializacion());
+
     }
 
     @Override
@@ -43,14 +45,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView textView_nombre, textView_telefono, textView_especializacion;
+        private TextView textView_nombre, textView_telefono, textView_especializacion;
+        public View view;
 
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            textView_nombre = itemView.findViewById(R.id.tv_Lista_Nombre);
-            textView_telefono = itemView.findViewById(R.id.tv_Lista_Telefono);
-            textView_especializacion = itemView.findViewById(R.id.tv_Lista_Especializacion);
-
+        public MyViewHolder(View view) {
+            super(view);
+            this.view = view;
+            this.textView_nombre = (TextView) view.findViewById(R.id.tv_Lista_Nombre);
+            this.textView_telefono = (TextView) view.findViewById(R.id.tv_Lista_Telefono);
+            this.textView_especializacion = (TextView) view.findViewById(R.id.tv_Lista_Especializacion);
         }
     }
 

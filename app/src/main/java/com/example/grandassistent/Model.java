@@ -2,7 +2,7 @@ package com.example.grandassistent;
 
 public class Model {
 
-    String m_nombre,m_telfono,m_especializacion;
+    private String m_nombre,m_telfono,m_especializacion;
 
     public Model(){
 

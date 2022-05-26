@@ -29,10 +29,8 @@ public class Activity_Pantalla_Asistente extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference mDatabase;
-   // private FirebaseDatabase bd = FirebaseDatabase.getInstance();
-    //private DatabaseReference root = bd.getReference("USUARIOS_GRAND_ASSISTENT").child("Asistentes");
     private MainAdapter adapter;
-    private ArrayList<Model> list;
+    private ArrayList<Model> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +43,34 @@ public class Activity_Pantalla_Asistente extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabase = firebaseDatabase.getReference("USUARIOS_GRAND_ASSISTENT").child("Asistentes");
+        mDatabase = firebaseDatabase.getReference("USUARIOS_GRAND_ASSISTENT");
 
         recyclerView = findViewById(R.id.Asistentes_Lista);
-
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list = new ArrayList<>();
-        adapter = new MainAdapter(this,list);
-        recyclerView.setAdapter(adapter);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        Lista();
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Window window = this.getWindow();
+            window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
+        }
+
+    }
+
+    private void Lista(){
+        mDatabase.child("Asistentes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Model user = dataSnapshot.getValue(Model.class);
-                    list.add(user);
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String s_nombre = ds.child("Nombre").getValue().toString();
+                        String s_telefono = ds.child("Telefono").getValue().toString();
+                        String s_especializacion = ds.child("Especializacion_A").getValue().toString();
+                        list.add(new Model(s_nombre,s_telefono,s_especializacion));
+                    }
+                    adapter = new MainAdapter(list,R.layout.item);
+                    recyclerView.setAdapter(adapter);
                 }
-                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -70,12 +78,6 @@ public class Activity_Pantalla_Asistente extends AppCompatActivity {
 
             }
         });
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            Window window = this.getWindow();
-            window.setStatusBarColor(this.getResources().getColor(R.color.color_btn_iniciar));
-        }
-
     }
 
     @Override
