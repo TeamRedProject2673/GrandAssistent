@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +26,8 @@ import java.util.ArrayList;
 
 public class Activity_Pantalla_Asistente extends AppCompatActivity {
 
+    Button btn_contratar;
     RecyclerView recyclerView;
-
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
     FirebaseDatabase firebaseDatabase;
@@ -45,10 +48,13 @@ public class Activity_Pantalla_Asistente extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         mDatabase = firebaseDatabase.getReference("USUARIOS_GRAND_ASSISTENT");
 
+        btn_contratar = (Button) findViewById(R.id.btn_Contratar);
         recyclerView = findViewById(R.id.Asistentes_Lista);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         Lista();
+
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Window window = this.getWindow();
