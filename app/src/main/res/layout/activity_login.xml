@@ -159,7 +159,7 @@
         android:id="@+id/Text_Registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="55dp"
         android:layout_marginBottom="40dp"
         android:text="@string/btn_registrar"
         android:textColor="@color/color_btn_iniciar"
